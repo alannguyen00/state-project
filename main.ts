@@ -1,4 +1,4 @@
-function main_character () {
+function new_sprites () {
     Ninja_Dave = sprites.create(img`
 . . . 5 5 . . . . . . . . . . . 
 . . . . 5 5 8 8 8 8 8 . . . . . 
@@ -17,6 +17,9 @@ function main_character () {
 . . . . . f f . . f f . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
+    Ninja_Dave.setPosition(-20, -1200)
+}
+function main_character () {
     controller.moveSprite(Ninja_Dave, 100, 0)
     Ninja_Dave.ay = 200
     Ninja_Dave.setPosition(10, 0)
@@ -383,7 +386,7 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
     pause(500)
-    game.showLongText("         Climb your way to victory!", DialogLayout.Center)
+    game.showLongText("Climb your way to victory!", DialogLayout.Center)
     game.showLongText("         Be careful as the platforms WILL disappear!", DialogLayout.Center)
     pause(500)
     game.showLongText("        Use the LEFT and RIGHT buttons to move", DialogLayout.Center)
@@ -1190,6 +1193,8 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
 })
 let shuriken: Sprite = null
 let Ninja_Dave: Sprite = null
+new_sprites()
+intro()
 main_character()
 background()
 info.setLife(3)
