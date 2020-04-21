@@ -1,24 +1,3 @@
-function new_sprites () {
-    Ninja_Dave = sprites.create(img`
-. . . 5 5 . . . . . . . . . . . 
-. . . . 5 5 8 8 8 8 8 . . . . . 
-5 5 . . . . 5 5 5 5 5 . . . . . 
-. . 5 . . 5 8 8 8 1 1 . . . . . 
-. . 5 . . 5 8 8 8 8 8 . . . . . 
-. . . 5 5 . 8 8 8 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . 8 . 8 f f 8 . 8 . . . . 
-. . . . 8 . 5 5 5 5 . 8 . . . . 
-. . . . d . 8 8 8 f . d . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . . f f . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-    Ninja_Dave.setPosition(-20, -1200)
-}
 function main_character () {
     controller.moveSprite(Ninja_Dave, 100, 0)
     Ninja_Dave.ay = 200
@@ -1011,6 +990,27 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function new_sprites () {
+    Ninja_Dave = sprites.create(img`
+. . . 5 5 . . . . . . . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+5 5 . . . . 5 5 5 5 5 . . . . . 
+. . 5 . . 5 8 8 8 1 1 . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. . . 5 5 . 8 8 8 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . 8 . 8 f f 8 . 8 . . . . 
+. . . . 8 . 5 5 5 5 . 8 . . . . 
+. . . . d . 8 8 8 f . d . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+    Ninja_Dave.setPosition(-20, -1200)
+}
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     Ninja_Dave.vy = -170
     animation.runImageAnimation(
