@@ -366,6 +366,7 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
     pause(500)
     game.showLongText("Climb your way to victory!", DialogLayout.Center)
+    game.showLongText("Climb your way to victory!", DialogLayout.Center)
     game.showLongText("         Be careful as the platforms WILL disappear!", DialogLayout.Center)
     pause(500)
     game.showLongText("        Use the LEFT and RIGHT buttons to move", DialogLayout.Center)
