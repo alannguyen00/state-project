@@ -4,28 +4,6 @@ namespace SpriteKind {
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
-function platform_one () {
-    platform_1 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.Platform1)
-    platform_1.vx = 30
-    platform_1.setPosition(332, 1000)
-}
 function main_character () {
     controller.moveSprite(Ninja_Dave, 100, 0)
     Ninja_Dave.ay = 200
@@ -887,8 +865,8 @@ function weapon () {
 }
 scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.destroy(effects.spray, 100)
-    Ninja_Dave.say("AAAHHH", 100)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -1001,6 +979,28 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function platform_one () {
+    platform_1 = sprites.create(img`
+f f f f f f f f f f f f f f f f 
+f f e e e e e e e e e e e e f f 
+f e f e e e e e e e e e e f e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e e e e f e e f e e e e e f 
+f e e e e e e f f e e e e e e f 
+f e e e e e e f f e e e e e e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e f e e e e e e e e f e e f 
+f e f e e e e e e e e e e f e f 
+f f e e e e e e e e e e e e f f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.Platform1)
+    platform_1.vx = 30
+    platform_1.setPosition(332, 1000)
+}
 function new_sprites () {
     Ninja_Dave = sprites.create(img`
 . . . 5 5 . . . . . . . . . . . 
