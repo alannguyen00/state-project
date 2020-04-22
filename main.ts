@@ -1,3 +1,31 @@
+namespace SpriteKind {
+    export const Platform1 = SpriteKind.create()
+}
+scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
+    platform_1.vx = 0 - platform_1.vx
+})
+function platform_one () {
+    platform_1 = sprites.create(img`
+f f f f f f f f f f f f f f f f 
+f f e e e e e e e e e e e e f f 
+f e f e e e e e e e e e e f e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e e e e f e e f e e e e e f 
+f e e e e e e f f e e e e e e f 
+f e e e e e e f f e e e e e e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e f e e e e e e e e f e e f 
+f e f e e e e e e e e e e f e f 
+f f e e e e e e e e e e e e f f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.Platform1)
+    platform_1.vx = 30
+    platform_1.setPosition(332, 1000)
+}
 function main_character () {
     controller.moveSprite(Ninja_Dave, 100, 0)
     Ninja_Dave.ay = 200
@@ -604,34 +632,34 @@ function background () {
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 3 3 3 3 7 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e e e e e e 7 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 5 5 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 b b b b b b b b b b b 3 3 3 3 3 3 5 5 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 f f f f f f f f f f f f f 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -762,24 +790,6 @@ f 5 4 4 4 4 4 4 4 4 4 4 4 4 4 5
 5 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 
 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
-`, true)
-    scene.setTile(5, img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
 `, true)
     scene.setTile(3, img`
 f f f f f f f f f f f f f f f f 
@@ -1011,7 +1021,11 @@ function new_sprites () {
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     Ninja_Dave.setPosition(-20, -1200)
+    Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+	
+})
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     Ninja_Dave.vy = -170
     animation.runImageAnimation(
@@ -1192,10 +1206,15 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
     )
     pause(1000)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
+    sprite.bottom = otherSprite.top - 1
+})
 let shuriken: Sprite = null
 let Ninja_Dave: Sprite = null
+let platform_1: Sprite = null
 new_sprites()
 intro()
 main_character()
 background()
+platform_one()
 info.setLife(3)
