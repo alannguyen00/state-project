@@ -93,7 +93,7 @@ f f f f e e e e e e e e e f e f
 f f f f e e e e e e e e e e f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-        info.changeScoreBy(1)
+        info.changeScoreBy(100)
         game.splash("BUSINESS AWARD COLLECTED", "This award focuses on local and district/regional and state involvement; intermediate business skills; and leadership in the community. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
     }
 }
@@ -162,7 +162,7 @@ f f f f e e e e e e e e e f e f
 f f f f e e e e e e e e e e f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-        info.changeScoreBy(1)
+        info.changeScoreBy(100)
         game.splash("FUTURE AWARD COLLECTED", "This award focuses on basic business skills, introduction to community service, and FBLA involvement at the local level. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
     }
 }
@@ -685,9 +685,9 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 5 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e e e e e e e e e e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -1003,7 +1003,7 @@ f f f f e e e e e e e e e f e f
 f f f f e e e e e e e e e e f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-        info.changeScoreBy(1)
+        info.changeScoreBy(100)
         game.splash(" LEADER AWARD COLLECTED ", "This award focuses on local, district/regional, state, and national involvement; advanced business skills; and community leadership. Names of qualifying students and pins will be sent to the state chair/adviser to be presented at the state leadership conference, if desired.")
     }
 }
@@ -1231,22 +1231,22 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function platform_one () {
     platform_1 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
 f f f f f f f f f f f f f f f f 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.Platform1)
     platform_1.vx = 30
     platform_1.setPosition(828, 696)
