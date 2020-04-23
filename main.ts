@@ -765,8 +765,7 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-    // This block adds detail and texture into bland color
-    // blocks
+    // This block adds detail and texture into bland color blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
