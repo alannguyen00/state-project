@@ -7,6 +7,7 @@ namespace SpriteKind {
     export const platform4 = SpriteKind.create()
     export const platform5 = SpriteKind.create()
     export const platform6 = SpriteKind.create()
+    export const key3 = SpriteKind.create()
 }
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
@@ -33,16 +34,18 @@ f f f f f f f f f f f f f f f f
     platform6.vx = 100
     platform6.setPosition(828, 546)
 }
+function key_3_delete () {
+	
+}
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 150, 0)
+    controller.moveSprite(Ninja_Dave, 150, 150)
     Ninja_Dave.setPosition(10, 0)
-    Ninja_Dave.ay = 200
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
-        key_2.destroy()
+        key_2.destroy(effects.fire, 500)
         scene.setTile(4, img`
 f f f f f f f f f f f f f f f f 
 f f f f e e e e e e e e e e f f 
@@ -88,11 +91,30 @@ f f f f f f f f f f f f f f f f
     platform4.setPosition(825, 651)
 }
 function _3key () {
-	
+    key_3 = sprites.create(img`
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+. . . 2 . . 5 5 5 . . . . . . . 
+. . . 2 . 5 . . . 5 . . 2 2 2 . 
+. . . . . 5 . . . 5 . 2 2 . . . 
+. 2 2 2 . 5 . . . 5 . . . . . . 
+. . . . . . 5 5 5 . . . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . 2 . . . 5 . . . 2 . . . . 
+. . 2 2 . . . 5 . . . 2 2 . . . 
+. . 2 . . 5 5 5 . 2 . . 2 . . . 
+. . . . . . . 5 . . 2 . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . . . 5 5 5 . . . . . . . . 
+`, SpriteKind.Player)
+    key_3.setPosition(786, 344)
+    key_3.setKind(SpriteKind.key3)
 }
 function key_1_delete () {
     if (Ninja_Dave.overlapsWith(key_1)) {
-        key_1.destroy(effects.bubbles, 500)
+        key_1.destroy(effects.fire, 500)
         scene.setTile(6, img`
 f f f f f f f f f f f f f f f f 
 f f f f e e e e e e e e e e f f 
@@ -200,18 +222,18 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
-. . . . . . 1 1 1 . . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . . 1 1 1 . . . . . . . 
-. . . . . . . 1 . . . . . . . . 
-. . . . . . 1 1 . . . . . . . . 
-. . . . . . . 1 . . . . . . . . 
-. . . . . . 1 1 . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . 2 . . 5 5 5 . . . . . . . 
+. . . 2 . 5 . . . 5 . . 2 2 2 . 
+. . . . . 5 . . . 5 . 2 2 . . . 
+. 2 2 2 . 5 . . . 5 . . . . . . 
+. . . . . . 5 5 5 . . . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . 2 . . . 5 . . . 2 . . . . 
+. . 2 2 . . . 5 . . . 2 2 . . . 
+. . 2 . . 5 5 5 . 2 . . 2 . . . 
+. . . . . . . 5 . . 2 . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . . . 5 5 5 . . . . . . . . 
 `, SpriteKind.Player)
     key_2.setPosition(569, 695)
     key_2.setKind(SpriteKind.key2)
@@ -512,8 +534,9 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
     game.showLongText("Jumps refill every 2 seconds souse them wisely!", DialogLayout.Center)
     game.showLongText("Grab the key at the top of every level to unlock the next stage!", DialogLayout.Center)
     game.showLongText("The keys are Business Achievement Awards, so get all 4!", DialogLayout.Center)
-    game.showLongText("         Be careful as the platforms WILL get faster!", DialogLayout.Center)
+    game.showLongText("Be careful as the platforms WILL get faster!", DialogLayout.Center)
     game.showLongText("If you don't jump fast enough on the platforms, they'll drag you down to move!", DialogLayout.Center)
+    game.showLongText("Note: Avoid pressing the jump button between delays to avoid unwanted after jumps.", DialogLayout.Center)
     pause(500)
     game.showLongText("        Use the LEFT and RIGHT buttons to move", DialogLayout.Center)
     game.showLongText("         Use the A button to jump your way to victory!", DialogLayout.Center)
@@ -558,8 +581,8 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 e c c c c c c b b b b b b b b b b b b b b b b b c c c c c b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c b b b b b b b b b b b b b b b b b c c c c c b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c b b b b b b b b b b b b b b b b b c c c c c b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 5 e c c c c c c b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 5 e c c c c c b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e e e e e e e e e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -584,19 +607,19 @@ function background () {
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 6 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 6 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e e e e e e e e e e e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 5 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 5 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 5 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -676,6 +699,8 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
+    // This block adds detail and texture into bland color
+    // blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
@@ -1044,7 +1069,7 @@ scene.onHitTile(SpriteKind.platform2, 14, function (sprite) {
 })
 info.onCountdownEnd(function () {
     main_character()
-    effects.blizzard.startScreenEffect(500)
+    effects.blizzard.startScreenEffect()
     platform_one()
     platform_2()
     platform_3()
@@ -1125,7 +1150,7 @@ f f f f f f f f f f f f f f f f
 }
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    Ninja_Dave.vy = -170
+    Ninja_Dave.vy = -150
     // This will animate my character
     animation.runImageAnimation(
     Ninja_Dave,
@@ -1318,6 +1343,7 @@ let platform3: Sprite = null
 let platform_two: Sprite = null
 let platform5: Sprite = null
 let key_1: Sprite = null
+let key_3: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
 let Ninja_Dave: Sprite = null
