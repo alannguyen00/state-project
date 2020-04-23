@@ -9,7 +9,7 @@ namespace SpriteKind {
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
-function key1 () {
+function _1key () {
     key_1 = sprites.create(img`
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
@@ -31,27 +31,27 @@ e e e e e e e e e e e e e e e e
     key_1.setPosition(279, 950)
     key_1.setKind(SpriteKind.key1)
 }
-function platform_4 () {
-    platform4 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.platform4)
-    platform4.vx = 100
-    platform4.setPosition(825, 651)
+function _2key () {
+    key_2 = sprites.create(img`
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+. . . . . . 1 1 1 . . . . . . . 
+. . . . . 1 . . . 1 . . . . . . 
+. . . . . 1 . . . 1 . . . . . . 
+. . . . . 1 . . . 1 . . . . . . 
+. . . . . . 1 1 1 . . . . . . . 
+. . . . . . . 1 . . . . . . . . 
+. . . . . . 1 1 . . . . . . . . 
+. . . . . . . 1 . . . . . . . . 
+. . . . . . 1 1 . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+    key_2.setPosition(569, 695)
+    key_2.setKind(SpriteKind.key2)
 }
 // Will create ninja
 function main_character () {
@@ -83,6 +83,28 @@ f f f f f f f f f f f f f f f f
         info.changeScoreBy(1)
         game.splash("BUSINESS AWARD COLLECTED")
     }
+}
+function platform_4 () {
+    platform4 = sprites.create(img`
+f f f f f f f f f f f f f f f f 
+f f e e e e e e e e e e e e f f 
+f e f e e e e e e e e e e f e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e e e e f e e f e e e e e f 
+f e e e e e e f f e e e e e e f 
+f e e e e e e f f e e e e e e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e f e e e e e e e e f e e f 
+f e f e e e e e e e e e e f e f 
+f f e e e e e e e e e e e e f f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.platform4)
+    platform4.vx = 100
+    platform4.setPosition(825, 651)
 }
 function key_1_delete () {
     if (Ninja_Dave.overlapsWith(key_1)) {
@@ -816,27 +838,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, oth
 scene.onHitTile(SpriteKind.platform4, 14, function (sprite) {
     platform4.vx = 0 - platform4.vx
 })
-function weapon () {
-    shuriken = sprites.createProjectileFromSprite(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . f f . . . f f . . . . . 
-. . . f 1 1 f . f 1 1 f . . . . 
-. . . . f 1 1 f 1 1 f . . . . . 
-. . . . . f 1 1 1 f . . . . . . 
-. . . . f f 1 1 1 f . . . . . . 
-. . . f 1 1 f f 1 1 f . . . . . 
-. . . f 1 f . . f 1 f . . . . . 
-. . . . f . . . . f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, Ninja_Dave, 200, 0)
-    shuriken.setKind(SpriteKind.Projectile)
-}
 function platform_2 () {
     platform_two = sprites.create(img`
 f f f f f f f f f f f f f f f f 
@@ -1000,37 +1001,15 @@ f f f f f f f f f f f f f f f f
 scene.onHitTile(SpriteKind.platform2, 14, function (sprite) {
     platform_two.vx = 0 - platform_two.vx
 })
-function key2 () {
-    key_2 = sprites.create(img`
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-. . . . . . 1 1 1 . . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . 1 . . . 1 . . . . . . 
-. . . . . . 1 1 1 . . . . . . . 
-. . . . . . . 1 . . . . . . . . 
-. . . . . . 1 1 . . . . . . . . 
-. . . . . . . 1 . . . . . . . . 
-. . . . . . 1 1 . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-    key_2.setPosition(569, 695)
-    key_2.setKind(SpriteKind.key2)
-}
 info.onCountdownEnd(function () {
     main_character()
     background()
+    _1key()
+    _2key()
     platform_one()
     platform_2()
     platform_3()
     platform_4()
-    key1()
-    key2()
     info.setLife(3)
     info.setScore(0)
 })
@@ -1271,10 +1250,9 @@ scene.onHitTile(SpriteKind.platform3, 14, function (sprite) {
 })
 let platform3: Sprite = null
 let platform_two: Sprite = null
-let shuriken: Sprite = null
-let key_2: Sprite = null
-let Ninja_Dave: Sprite = null
 let platform4: Sprite = null
+let Ninja_Dave: Sprite = null
+let key_2: Sprite = null
 let key_1: Sprite = null
 let platform_1: Sprite = null
 new_sprites()
