@@ -34,6 +34,12 @@ namespace myTiles {
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
+scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
+})
 function platform_6 () {
     platform6 = sprites.create(img`
 f f f f f f f f f f f f f f f f 
@@ -59,48 +65,12 @@ f f f f f f f f f f f f f f f f
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
 })
-function final_level () {
-    level_4_trigger = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . 7 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . 7 7 7 7 7 7 7 . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
-. . . . . . . . 7 7 7 . . . . . . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-. . . . . . . . 7 7 7 . . . . . . 7 7 7 7 7 7 7 7 7 7 7 7 7 . . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 7 7 . 7 7 7 . 7 7 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 . . . 7 7 7 . . . 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 . . . 7 7 7 . . . 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 7 7 . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . . 7 7 7 7 . 7 7 7 . 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
-. . . . 7 7 7 7 7 7 7 7 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
-. . . . 7 7 7 7 7 7 7 7 7 7 7 . . . . . . . 7 7 7 . . . . . . . 
-. . . . . 7 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . 7 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.signal)
-    level_4_trigger.setPosition(973, 385)
-}
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 300, 300)
+    controller.moveSprite(Ninja_Dave, 170, 0)
     Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.ay = 200
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
@@ -124,7 +94,7 @@ f f f f e e e e e e e e e e f f
 f f f f f f f f f f f f f f f f 
 `, false)
         info.changeScoreBy(1)
-        game.splash("BUSINESS AWARD COLLECTED")
+        game.splash("BUSINESS AWARD COLLECTED", "This award focuses on local and district/regional and state involvement; intermediate business skills; and leadership in the community. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
     }
 }
 function platform_4 () {
@@ -982,21 +952,21 @@ f f f f e e e e e e e e e e f f
 f f f f f f f f f f f f f f f f 
 `, true)
     scene.setTile(9, img`
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+f f 1 1 1 1 1 1 1 1 1 1 1 1 f f 
+f f 1 1 1 1 1 1 1 1 1 1 1 f f f 
+f f f 1 1 1 1 1 1 1 1 1 f f f f 
+f f f f 1 1 1 1 1 1 1 1 f f f f 
+f f f f 1 1 1 1 1 1 1 f f f f f 
+f f f f f 1 1 1 1 1 f f f f f f 
+f f f f f 1 1 1 1 1 f f f f f f 
+f f f f f f 1 1 1 f f f f f f f 
+f f f f f f f 1 f f f f f f f f 
+f f f f f f f 1 f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-f f f f e e e e e e e e e e f f 
-f f f f e e e e e e e e e f e f 
-f f f f e e e e e e e e f e e f 
-f f f f f e e e e e e f e e e f 
-f f f f f f e e e e f e e e e f 
-f f f f f e f e e f e e e e e f 
-f f f f f e e f f e e e e e e f 
-f f f f f e e f f e e e e e e f 
-f f f f f e f e e f e e e e e f 
-f f f f f f e e e e f e e e e f 
-f f f f f e e e e e e f e e e f 
-f f f f e e e e e e e e f e e f 
-f f f f e e e e e e e e e f e f 
-f f f f e e e e e e e e e e f f 
+f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
 }
@@ -1034,7 +1004,7 @@ f f f f e e e e e e e e e e f f
 f f f f f f f f f f f f f f f f 
 `, false)
         info.changeScoreBy(1)
-        game.splash(" LEADER AWARD COLLECTED ")
+        game.splash(" LEADER AWARD COLLECTED ", "This award focuses on local, district/regional, state, and national involvement; advanced business skills; and community leadership. Names of qualifying students and pins will be sent to the state chair/adviser to be presented at the state leadership conference, if desired.")
     }
 }
 function _1key () {
@@ -1096,7 +1066,7 @@ scene.onOverlapTile(SpriteKind.Player, img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `, function (sprite, location) {
-    last_level = 1
+	
 })
 function platform_2 () {
     platform_two = sprites.create(img`
@@ -1235,6 +1205,65 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
+    if (last_level == 1) {
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . 5 . . f 8 8 8 . . . . . . 
+. . . 5 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . 8 5 . 8 8 f 8 . . . . . . 
+. 5 . d 5 . 8 8 8 f . . . . . . 
+. 5 . . . 5 8 8 8 8 8 . . . . . 
+. 5 . . . 5 8 8 8 1 1 . . . . . 
+. . 5 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . 8 . . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . f 8 8 8 . . . . . . 
+. . d 8 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . . . . 8 8 f 8 . . . . . . 
+. 5 . . . 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. . 5 . . 5 8 8 8 1 1 . . . . . 
+. . . 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . 5 5 . . f 8 8 8 . . . . . . 
+. . d 5 8 8 8 f 8 8 8 8 8 d . . 
+5 5 . 5 . . 8 8 f 8 . . . . . . 
+5 5 . 5 5 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. 5 5 . . 5 8 8 8 1 1 . . . . . 
+. 5 . 5 . . 5 5 5 5 5 . . . . . 
+. 5 5 . 5 5 8 8 8 8 8 . . . . . 
+5 . . . . . . . . . . . . . . . 
+`],
+        100,
+        true
+        )
+    }
 })
 function platform_one () {
     platform_1 = sprites.create(img`
@@ -1278,6 +1307,7 @@ info.onCountdownEnd(function () {
     _1key()
     _2key()
     _3key()
+    last_level = 0
     info.setLife(3)
     info.setScore(0)
 })
@@ -1528,19 +1558,121 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
     true
     )
     pause(2000)
+    if (last_level == 1) {
+        Ninja_Dave.vy = 170
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . 5 . . f 8 8 8 . . . . . . 
+. . . 5 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . 8 5 . 8 8 f 8 . . . . . . 
+. 5 . d 5 . 8 8 8 f . . . . . . 
+. 5 . . . 5 8 8 8 8 8 . . . . . 
+. 5 . . . 5 8 8 8 1 1 . . . . . 
+. . 5 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . 8 . . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . f 8 8 8 . . . . . . 
+. . d 8 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . . . . 8 8 f 8 . . . . . . 
+. 5 . . . 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. . 5 . . 5 8 8 8 1 1 . . . . . 
+. . . 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . 5 5 . . f 8 8 8 . . . . . . 
+. . d 5 8 8 8 f 8 8 8 8 8 d . . 
+5 5 . 5 . . 8 8 f 8 . . . . . . 
+5 5 . 5 5 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. 5 5 . . 5 8 8 8 1 1 . . . . . 
+. 5 . 5 . . 5 5 5 5 5 . . . . . 
+. 5 5 . 5 5 8 8 8 8 8 . . . . . 
+5 . . . . . . . . . . . . . . . 
+`],
+        100,
+        true
+        )
+        pause(2000)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherSprite) {
-	
+    last_level = 1
+    game.splash("Now entering the drop zone")
+    level_4_trigger.destroy(effects.fire, 500)
+    Ninja_Dave.ay = -200
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
     sprite.bottom = otherSprite.top
 })
+function final_level () {
+    level_4_trigger = sprites.create(img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . 7 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . 7 7 7 7 7 7 7 . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . . . . . . 7 7 7 . . . . . . 7 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 7 . 7 7 7 . 7 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 . . . 7 7 7 . . . 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 . . . 7 7 7 . . . 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 7 . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . . 7 7 7 7 . 7 7 7 . 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 . . . . . . . 7 7 7 . . . . . . . 
+. . . . . 7 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`, SpriteKind.signal)
+    level_4_trigger.setPosition(973, 385)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSprite) {
     key_1_delete()
 })
 scene.onHitTile(SpriteKind.platform3, 14, function (sprite) {
     platform3.vx = 0 - platform3.vx
 })
+let level_4_trigger: Sprite = null
 let platform3: Sprite = null
 let platform_two: Sprite = null
 let platform5: Sprite = null
@@ -1549,9 +1681,8 @@ let key_1: Sprite = null
 let key_3: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
-let Ninja_Dave: Sprite = null
-let level_4_trigger: Sprite = null
 let platform6: Sprite = null
+let Ninja_Dave: Sprite = null
 let platform_1: Sprite = null
 new_sprites()
 intro()
