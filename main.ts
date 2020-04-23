@@ -8,6 +8,28 @@ namespace SpriteKind {
     export const platform5 = SpriteKind.create()
     export const platform6 = SpriteKind.create()
     export const key3 = SpriteKind.create()
+    export const signal = SpriteKind.create()
+}
+namespace myTiles {
+    //% blockIdentity=images._tile
+    export const tile0 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
 }
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
@@ -37,12 +59,48 @@ f f f f f f f f f f f f f f f f
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
 })
+function final_level () {
+    level_4_trigger = sprites.create(img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . 7 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . 7 7 7 7 7 7 7 . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . . . . . . 7 7 7 . . . . . . 7 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 7 . 7 7 7 . 7 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 . . . 7 7 7 . . . 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 . . . 7 7 7 . . . 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 7 . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . . 7 7 7 7 . 7 7 7 . 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 . . . . . . . 7 7 7 . . . . . . . 
+. . . . . 7 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`, SpriteKind.signal)
+    level_4_trigger.setPosition(973, 385)
+}
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 150, 0)
+    controller.moveSprite(Ninja_Dave, 300, 300)
     Ninja_Dave.setPosition(10, 0)
-    Ninja_Dave.ay = 200
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
@@ -135,7 +193,7 @@ f f f f e e e e e e e e e e f f
 f f f f f f f f f f f f f f f f 
 `, false)
         info.changeScoreBy(1)
-        game.splash("FUTURE AWARD COLLECTED")
+        game.splash("FUTURE AWARD COLLECTED", "This award focuses on basic business skills, introduction to community service, and FBLA involvement at the local level. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform3, function (sprite, otherSprite) {
@@ -216,6 +274,65 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
+    if (last_level == 1) {
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f . f f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . . 
+. . . 8 . . 8 8 8 8 . . 5 . 5 . 
+. . . d . . 8 8 8 8 . 5 5 . 5 . 
+. . . . . 8 8 8 8 8 . 5 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 5 . . . . . 
+. . . . . 8 8 8 8 8 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . f f . . . . . . 
+. . . . . f f . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . 5 
+. . . 8 . . 8 8 8 8 . . d . . 5 
+. . . d . . 8 8 8 8 . . d . 5 . 
+. . . . . 8 8 8 8 8 . . 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . 8 8 8 8 8 5 5 . . . . 
+. . . . . . . . . . . . 5 5 . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f . . . . . . . . . 
+. . . . . . 8 . f f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . d 8 8 8 8 8 8 8 8 8 8 . . 5 
+. . . . . . 8 8 8 8 . . d . . 5 
+. . . . . . 8 8 8 8 . . d . 5 . 
+. . . . . 8 8 8 8 8 . . 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . 5 . 
+. . . . . 8 8 8 8 8 5 5 . 5 . 5 
+. . . . . . . . . . . . 5 5 . . 
+`],
+        100,
+        true
+        )
+    }
 })
 function _2key () {
     key_2 = sprites.create(img`
@@ -553,22 +670,22 @@ function background () {
 2 2 1 b b b b b c c c c c c c c c c c c c c c c c c c c c c b c c c c c c c b b c c c c c c c b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c c b b b 
 2 2 1 b b b b b c c c c c c c c c c c c c c c c c c c c c c b c c c c c b b b b c c c c c c c b b b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c c c b b 
 2 2 1 b b b b c c c c b b c c c c c c c c c c c c c c c c c b c c c c c b b b b c c c c c b b b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b b b c c c c c c c b b 
-2 2 1 b b b b c c c c b b c c c c c c c c c c b b c c c c c b c c c c c b b b b c c c c c b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b b c c c c c c c b b 
-2 2 1 b b b b c c c c b b c c c c c c c c c b b b b b b b b b c c c c c b b b b c c c c c b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b b b c c c c c c b b 
-2 2 1 b b b b c c c b b b c c c c c b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c c c c b b 
-2 2 1 b b b b c c c b b b c c c c c b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b c c c c c c c b b b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b c c c c c c c b b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b c c c c c c b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b c c c c c c b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c b b b b b b 
-2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b b b b b b c b b b b b b b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b c c c c c b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c b b b b b b b c c c c c c c b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e e e e e e e e c c c c c c c c c c c c c c c c c c c c c c c c c c c c c b b b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c c c c c c c c c c c c c c c c c b b c c c c c b b b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e e e e e e e e e e e e e e e e e e e e e e e b b c c c c c b b b b b b b c c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 9 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b b c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 9 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
+2 2 1 b b b b c c c c b b c c c c c c c c c c b b c c c c c b c c c c c b b b b c c c c c b b b b b b b b c c c c c c c c c c e e e e e e e e e e e e c c c c c c c c b b b b b b b b c c c c c c c b b 
+2 2 1 b b b b c c c c b b c c c c c c c c c b b b b b b b b b c c c c c b b b b c c c c c b b b b b b c c c c c c c c c c c c e 9 9 9 9 9 9 9 9 9 9 e c c c c c c c c b b b b b b b b b c c c c c c b b 
+2 2 1 b b b b c c c b b b c c c c c b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b b b c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c b b b b b b b c c c c c c c c b b 
+2 2 1 b b b b c c c b b b c c c c c b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b c c c c c c c b b b b b b b b b b c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b c c c c c c c b b b b b b b b c c c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b c c c c c c b b b b b b b c c c c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b c c c c c c b b b b b b b c c c c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c b b b b b b 
+2 2 1 b b b b b b b b b b c c c c c b b b b b b b b b b b b b b b b b b b c b b b b b b b c c c c c c c c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c c c b b b b b c c c c c b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c b b b b b b b c c c c c c c b c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c b b b b b b b c c c c c b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b c c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c b b b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e e e e e e e e c c c c c c c c c c e 7 7 7 7 7 7 7 7 7 7 e c c c c c c c b b b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c c c c c e 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e e e e e e e e e e e e 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b c c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b b c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e e e e e e e e e e e e 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e b b c c c c c c b c e 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 5 e b b c c c c c b b c e 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
@@ -866,20 +983,20 @@ f f f f f f f f f f f f f f f f
 `, true)
     scene.setTile(9, img`
 f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f e e f e e e e e e e e f e e f 
-f e e e f e e e e e e f e e e f 
-f e e e e f e e e e f e e e e f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e f e e f e e e e e f 
-f e e e e f e e e e f e e e e f 
-f e e e f e e e e e e f e e e f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
+f f f f e e e e e e e e e e f f 
+f f f f e e e e e e e e e f e f 
+f f f f e e e e e e e e f e e f 
+f f f f f e e e e e e f e e e f 
+f f f f f f e e e e f e e e e f 
+f f f f f e f e e f e e e e e f 
+f f f f f e e f f e e e e e e f 
+f f f f f e e f f e e e e e e f 
+f f f f f e f e e f e e e e e f 
+f f f f f f e e e e f e e e e f 
+f f f f f e e e e e e f e e e f 
+f f f f e e e e e e e e f e e f 
+f f f f e e e e e e e e e f e f 
+f f f f e e e e e e e e e e f f 
 f f f f f f f f f f f f f f f f 
 `, false)
 }
@@ -944,6 +1061,42 @@ e e e e e e e e e e e e e e e e
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform6, function (sprite, otherSprite) {
     sprite.bottom = otherSprite.top
+})
+scene.onOverlapTile(SpriteKind.Player, img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . 7 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . 7 7 7 7 7 7 7 . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
+. . . . . . . . 7 7 7 . . . . . . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . . . . . . 7 7 7 . . . . . . 7 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 7 . 7 7 7 . 7 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . 7 7 7 . . . 7 7 7 . . . 7 7 7 . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 . . . 7 7 7 . . . 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . 7 7 7 7 7 . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
+. . . 7 7 7 7 . 7 7 7 . 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
+. . . . 7 7 7 7 7 7 7 7 7 7 7 . . . . . . . 7 7 7 . . . . . . . 
+. . . . . 7 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . 7 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`, function (sprite, location) {
+    last_level = 1
 })
 function platform_2 () {
     platform_two = sprites.create(img`
@@ -1121,6 +1274,7 @@ info.onCountdownEnd(function () {
     platform_5()
     platform_6()
     background()
+    final_level()
     _1key()
     _2key()
     _3key()
@@ -1375,6 +1529,9 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
     )
     pause(2000)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherSprite) {
+	
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
     sprite.bottom = otherSprite.top
 })
@@ -1387,11 +1544,13 @@ scene.onHitTile(SpriteKind.platform3, 14, function (sprite) {
 let platform3: Sprite = null
 let platform_two: Sprite = null
 let platform5: Sprite = null
+let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
 let Ninja_Dave: Sprite = null
+let level_4_trigger: Sprite = null
 let platform6: Sprite = null
 let platform_1: Sprite = null
 new_sprites()
