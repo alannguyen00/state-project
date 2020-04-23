@@ -655,12 +655,12 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e e e e e e e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e e e e e e e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e e e e e e e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 5 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 5 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 5 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -674,18 +674,18 @@ function background () {
 2 2 1 b b b b b b b b b e 5 3 3 3 3 3 3 3 6 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e e e e e e e e e e e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 5 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 5 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 5 5 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 5 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 5 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 5 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -953,17 +953,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, oth
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
-scene.onHitTile(SpriteKind.platform5, 14, function (sprite) {
-    platform5.vx = 0 - platform5.vx
-})
 scene.onHitTile(SpriteKind.platform4, 14, function (sprite) {
     platform4.vx = 0 - platform4.vx
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.platform5, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
-    Ninja_Dave.say("AAAHHH", 2000)
-    pause(100)
 })
 function key_3_delete () {
     if (Ninja_Dave.overlapsWith(key_3)) {
@@ -1240,7 +1231,6 @@ info.onCountdownEnd(function () {
     platform_one()
     platform_2()
     platform_4()
-    platform_5()
     background()
     final_level()
     _1key()
@@ -1291,28 +1281,6 @@ function new_sprites () {
 `, SpriteKind.Player)
     Ninja_Dave.setPosition(-20, -1200)
     Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
-}
-function platform_5 () {
-    platform5 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. f f f f f f f f f f f f f f f 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. f f f f f f f f f f f f f f f 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.platform5)
-    platform5.vx = 50
-    platform5.setPosition(740, 598)
 }
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
@@ -1615,7 +1583,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSpr
 let level_4_trigger: Sprite = null
 let key_4: Sprite = null
 let platform_two: Sprite = null
-let platform5: Sprite = null
 let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
