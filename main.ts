@@ -1344,10 +1344,11 @@ f f f f f f f f f f f f f f f f
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (last_level == 1) {
-        Ninja_Dave.vy = 170
-        animation.runImageAnimation(
-        Ninja_Dave,
-        [img`
+        if (Ninja_Dave.isHittingTile(CollisionDirection.Top)) {
+            Ninja_Dave.vy = 170
+            animation.runImageAnimation(
+            Ninja_Dave,
+            [img`
 . . . . . . . . . . . . . . . . 
 . . . . . . f f . f f . . . . . 
 . . . . . . 8 . . 8 . . . . . . 
@@ -1399,16 +1400,17 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
 . 5 5 . 5 5 8 8 8 8 8 . . . . . 
 5 . . . . . . . . . . . . . . . 
 `],
-        100,
-        true
-        )
-        pause(1000)
+            100,
+            true
+            )
+        }
     } else {
-        Ninja_Dave.vy = -170
-        // This will animate my character
-        animation.runImageAnimation(
-        Ninja_Dave,
-        [img`
+        if (Ninja_Dave.isHittingTile(CollisionDirection.Bottom)) {
+            Ninja_Dave.vy = -170
+            // This will animate my character
+            animation.runImageAnimation(
+            Ninja_Dave,
+            [img`
 . . 5 5 . . . . . . . . . . . . 
 . . . . 5 5 8 8 8 8 8 . . . . . 
 5 5 . . . . 5 5 5 5 5 . . . . . 
@@ -1579,10 +1581,10 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
 . . . . . . f f . f f . . . . . 
 . . . . . . . . . . . . . . . . 
 `],
-        100,
-        true
-        )
-        pause(1000)
+            100,
+            true
+            )
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherSprite) {
