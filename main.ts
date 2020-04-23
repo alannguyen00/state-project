@@ -6,15 +6,13 @@ namespace SpriteKind {
     export const key2 = SpriteKind.create()
     export const platform4 = SpriteKind.create()
     export const platform5 = SpriteKind.create()
+    export const platform6 = SpriteKind.create()
 }
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
 function platform_6 () {
-	
-}
-function platform_5 () {
-    platform5 = sprites.create(img`
+    platform6 = sprites.create(img`
 f f f f f f f f f f f f f f f f 
 f f e e e e e e e e e e e e f f 
 f e f e e e e e e e e e e f e f 
@@ -31,9 +29,12 @@ f e e f e e e e e e e e f e e f
 f e f e e e e e e e e e e f e f 
 f f e e e e e e e e e e e e f f 
 f f f f f f f f f f f f f f f f 
-`, SpriteKind.platform5)
-    platform5.vx = 100
-    platform5.setPosition(740, 598)
+`, SpriteKind.Player)
+    platform6.vx = 100
+    platform6.setPosition(828, 546)
+}
+function _3key () {
+	
 }
 // Will create ninja
 function main_character () {
@@ -872,6 +873,9 @@ e e e e e e e e e e e e e e e e
     key_1.setPosition(279, 950)
     key_1.setKind(SpriteKind.key1)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.platform6, function (sprite, otherSprite) {
+    sprite.bottom = otherSprite.top
+})
 function platform_2 () {
     platform_two = sprites.create(img`
 f f f f f f f f f f f f f f f f 
@@ -1032,6 +1036,9 @@ f f f f f f f f f f f f f f f f
     platform_1.vx = 30
     platform_1.setPosition(828, 696)
 }
+scene.onHitTile(SpriteKind.platform6, 14, function (sprite) {
+    platform6.vx = 0 - platform6.vx
+})
 scene.onHitTile(SpriteKind.platform2, 14, function (sprite) {
     platform_two.vx = 0 - platform_two.vx
 })
@@ -1042,6 +1049,7 @@ info.onCountdownEnd(function () {
     platform_3()
     platform_4()
     platform_5()
+    platform_6()
     background()
     _1key()
     _2key()
@@ -1070,6 +1078,28 @@ function new_sprites () {
     Ninja_Dave.setPosition(-20, -1200)
     Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
 }
+function platform_5 () {
+    platform5 = sprites.create(img`
+f f f f f f f f f f f f f f f f 
+f f e e e e e e e e e e e e f f 
+f e f e e e e e e e e e e f e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e e e e f e e f e e e e e f 
+f e e e e e e f f e e e e e e f 
+f e e e e e e f f e e e e e e f 
+f f f f f f f f f f f f f f f f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+f f f f f f f f f f f f f f f f 
+f e e f e e e e e e e e f e e f 
+f e f e e e e e e e e e e f e f 
+f f e e e e e e e e e e e e f f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.platform5)
+    platform5.vx = 100
+    platform5.setPosition(740, 598)
+}
 function platform_3 () {
     platform3 = sprites.create(img`
 f f f f f f f f f f f f f f f f 
@@ -1094,7 +1124,7 @@ f f f f f f f f f f f f f f f f
 }
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    Ninja_Dave.vy = -170
+    Ninja_Dave.vy = -300
     // This will animate my character
     animation.runImageAnimation(
     Ninja_Dave,
@@ -1285,11 +1315,12 @@ scene.onHitTile(SpriteKind.platform3, 14, function (sprite) {
 })
 let platform3: Sprite = null
 let platform_two: Sprite = null
+let platform5: Sprite = null
 let key_1: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
 let Ninja_Dave: Sprite = null
-let platform5: Sprite = null
+let platform6: Sprite = null
 let platform_1: Sprite = null
 new_sprites()
 intro()
