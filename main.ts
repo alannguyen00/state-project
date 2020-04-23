@@ -46,8 +46,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSpr
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 300, 300)
+    controller.moveSprite(Ninja_Dave, 170, 0)
     Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.ay = 200
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
@@ -93,7 +94,7 @@ function platform_4 () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.platform4)
-    platform4.vx = 100
+    platform4.vx = 50
     platform4.setPosition(825, 651)
 }
 function _3key () {
@@ -339,7 +340,10 @@ function startbutton () {
     game.setDialogTextColor(1)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform2, function (sprite, otherSprite) {
-    sprite.bottom = otherSprite.top
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key2, function (sprite, otherSprite) {
     key2_delete()
@@ -629,7 +633,7 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c c c c c e 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b c c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e e e e e e e e e e e e 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b c c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b b c c c c c b b b b b b b b c c c c c b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 . 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 5 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e e e e e e e e e e e e 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e b b c c c c c c b c e 3 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 5 e b b c c c c c b b c e 5 3 3 3 3 3 3 3 3 3 e b c c c c c c b b b b b b b b c c c c c b b b b b 
@@ -646,10 +650,10 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c c b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 5 e c c c c c b b b b b e 5 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e c c c c c b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e e e e e e e e e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 5 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e e e e e e e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e e e e e e e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 5 e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -693,18 +697,18 @@ d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e 
 d d d d d d d d d d d d d 7 7 7 7 7 7 7 5 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 5 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-d d d d d d d d d d d d d a a a a a a a a e d d d d d d d d d e a a a a a a a e d d d d d e a a a a a a e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 5 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d 7 7 7 7 7 7 7 7 e d d d d d d d d d e 7 7 7 7 7 7 7 e d d d d d e 7 7 7 7 7 7 e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+d d d d d d d d d d d d d a a a a a a a a e d d d d d d d d d e a a a a a a a e d d d d d e a a a a a a e b b b b b b b b b b e e e b b b b b b e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
     scene.cameraFollowSprite(Ninja_Dave)
     scene.setTile(15, img`
@@ -945,7 +949,10 @@ f f f f f f f f f f f f f f f f
 `, false)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, otherSprite) {
-    sprite.bottom = otherSprite.top
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 scene.onHitTile(SpriteKind.platform5, 14, function (sprite) {
     platform5.vx = 0 - platform5.vx
@@ -954,7 +961,10 @@ scene.onHitTile(SpriteKind.platform4, 14, function (sprite) {
     platform4.vx = 0 - platform4.vx
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform5, function (sprite, otherSprite) {
-    sprite.bottom = otherSprite.top
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 function key_3_delete () {
     if (Ninja_Dave.overlapsWith(key_3)) {
@@ -1022,7 +1032,7 @@ function platform_2 () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.platform2)
-    platform_two.vx = 30
+    platform_two.vx = 50
     platform_two.setPosition(620, 880)
 }
 scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
@@ -1241,6 +1251,26 @@ info.onCountdownEnd(function () {
     info.setLife(3)
     info.setScore(0)
 })
+function _4key () {
+    key_4 = sprites.create(img`
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+. . . 2 . . 5 5 5 . . . . . . . 
+. . . 2 . 5 . . . 5 . . 2 2 2 . 
+. . . . . 5 . . . 5 . 2 2 . . . 
+. 2 2 2 . 5 . . . 5 . . . . . . 
+. . . . . . 5 5 5 . . . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . 2 . . . 5 . . . 2 . . . . 
+. . 2 2 . . . 5 . . . 2 2 . . . 
+. . 2 . . 5 5 5 . 2 . . 2 . . . 
+. . . . . . . 5 . . 2 . . . . . 
+. . . . . . . 5 . . . . . . . . 
+. . . . . 5 5 5 . . . . . . . . 
+`, SpriteKind.Player)
+}
 function new_sprites () {
     Ninja_Dave = sprites.create(img`
 . . . 5 5 . . . . . . . . . . . 
@@ -1282,7 +1312,7 @@ function platform_5 () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.platform5)
-    platform5.vx = 100
+    platform5.vx = 50
     platform5.setPosition(740, 598)
 }
 // This button will make my main character jump
@@ -1538,7 +1568,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherS
     Ninja_Dave.ay = -200
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
-    sprite.bottom = otherSprite.top
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 function final_level () {
     level_4_trigger = sprites.create(img`
@@ -1581,6 +1614,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSpr
     key_1_delete()
 })
 let level_4_trigger: Sprite = null
+let key_4: Sprite = null
 let platform_two: Sprite = null
 let platform5: Sprite = null
 let last_level = 0
