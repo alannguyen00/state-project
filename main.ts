@@ -619,7 +619,7 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
     pause(500)
     game.showLongText("Climb your way to victory!", DialogLayout.Center)
-    game.showLongText("Jumps refill every 2 seconds souse them wisely!", DialogLayout.Center)
+    game.showLongText("Jumps refill every 1 seconds souse them wisely!", DialogLayout.Center)
     game.showLongText("Grab the key at the top of every level to unlock the next stage!", DialogLayout.Center)
     game.showLongText("The keys are Business Achievement Awards, so get all 4!", DialogLayout.Center)
     game.showLongText("Be careful as the platforms WILL get faster!", DialogLayout.Center)
@@ -1032,42 +1032,6 @@ e e e e e e e e e e e e e e e e
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform6, function (sprite, otherSprite) {
     sprite.bottom = otherSprite.top
 })
-scene.onOverlapTile(SpriteKind.Player, img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . 7 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . 7 7 7 7 7 7 7 . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . 7 7 7 7 7 7 7 7 7 . . . . 
-. . . . . . . . 7 7 7 . . . . . . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-. . . . . . . . 7 7 7 . . . . . . 7 7 7 7 7 7 7 7 7 7 7 7 7 . . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 7 7 . 7 7 7 . 7 7 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . 7 7 7 . . . 7 7 7 . . . 7 7 7 . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . 7 7 7 . . . . . . . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 . . . 7 7 7 . . . 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 7 . . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . 7 7 7 7 7 . 7 7 7 . . 7 7 7 7 . . . . . 7 7 7 . . . . . . . 
-. . . 7 7 7 7 . 7 7 7 . 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
-. . . . 7 7 7 7 7 7 7 7 7 7 7 7 . . . . . . 7 7 7 . . . . . . . 
-. . . . 7 7 7 7 7 7 7 7 7 7 7 . . . . . . . 7 7 7 . . . . . . . 
-. . . . . 7 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . 7 7 7 7 7 7 7 7 . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . 7 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . 7 7 7 7 7 7 . . . . . . . . . 7 7 7 . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-`, function (sprite, location) {
-	
-})
 function platform_2 () {
     platform_two = sprites.create(img`
 f f f f f f f f f f f f f f f f 
@@ -1379,11 +1343,72 @@ f f f f f f f f f f f f f f f f
 }
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    Ninja_Dave.vy = -170
-    // This will animate my character
-    animation.runImageAnimation(
-    Ninja_Dave,
-    [img`
+    if (last_level == 1) {
+        Ninja_Dave.vy = 170
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . 5 . . f 8 8 8 . . . . . . 
+. . . 5 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . 8 5 . 8 8 f 8 . . . . . . 
+. 5 . d 5 . 8 8 8 f . . . . . . 
+. 5 . . . 5 8 8 8 8 8 . . . . . 
+. 5 . . . 5 8 8 8 1 1 . . . . . 
+. . 5 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . 8 . . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . f 8 8 8 . . . . . . 
+. . d 8 8 8 8 f 8 8 8 8 8 d . . 
+. 5 . . . . 8 8 f 8 . . . . . . 
+. 5 . . . 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. . 5 . . 5 8 8 8 1 1 . . . . . 
+. . . 5 . . 5 5 5 5 5 . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . f f . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . 5 5 . . f 8 8 8 . . . . . . 
+. . d 5 8 8 8 f 8 8 8 8 8 d . . 
+5 5 . 5 . . 8 8 f 8 . . . . . . 
+5 5 . 5 5 5 8 8 8 f . . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. 5 5 . . 5 8 8 8 1 1 . . . . . 
+. 5 . 5 . . 5 5 5 5 5 . . . . . 
+. 5 5 . 5 5 8 8 8 8 8 . . . . . 
+5 . . . . . . . . . . . . . . . 
+`],
+        100,
+        true
+        )
+        pause(1000)
+    } else {
+        Ninja_Dave.vy = -170
+        // This will animate my character
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
 . . 5 5 . . . . . . . . . . . . 
 . . . . 5 5 8 8 8 8 8 . . . . . 
 5 5 . . . . 5 5 5 5 5 . . . . . 
@@ -1554,70 +1579,10 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
 . . . . . . f f . f f . . . . . 
 . . . . . . . . . . . . . . . . 
 `],
-    100,
-    true
-    )
-    pause(2000)
-    if (last_level == 1) {
-        Ninja_Dave.vy = 170
-        animation.runImageAnimation(
-        Ninja_Dave,
-        [img`
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . f f . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . 5 . . f 8 8 8 . . . . . . 
-. . . 5 8 8 8 f 8 8 8 8 8 d . . 
-. 5 . 8 5 . 8 8 f 8 . . . . . . 
-. 5 . d 5 . 8 8 8 f . . . . . . 
-. 5 . . . 5 8 8 8 8 8 . . . . . 
-. 5 . . . 5 8 8 8 1 1 . . . . . 
-. . 5 5 . . 5 5 5 5 5 . . . . . 
-. . . . 5 5 8 8 8 8 8 . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . 8 . . f f . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . f 8 8 8 . . . . . . 
-. . d 8 8 8 8 f 8 8 8 8 8 d . . 
-. 5 . . . . 8 8 f 8 . . . . . . 
-. 5 . . . 5 8 8 8 f . . . . . . 
-. . 5 . . 5 8 8 8 8 8 . . . . . 
-. . 5 . . 5 8 8 8 1 1 . . . . . 
-. . . 5 . . 5 5 5 5 5 . . . . . 
-. . . . 5 5 8 8 8 8 8 . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . f f . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . 5 5 . . f 8 8 8 . . . . . . 
-. . d 5 8 8 8 f 8 8 8 8 8 d . . 
-5 5 . 5 . . 8 8 f 8 . . . . . . 
-5 5 . 5 5 5 8 8 8 f . . . . . . 
-. . 5 . . 5 8 8 8 8 8 . . . . . 
-. 5 5 . . 5 8 8 8 1 1 . . . . . 
-. 5 . 5 . . 5 5 5 5 5 . . . . . 
-. 5 5 . 5 5 8 8 8 8 8 . . . . . 
-5 . . . . . . . . . . . . . . . 
-`],
         100,
         true
         )
-        pause(2000)
+        pause(1000)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherSprite) {
