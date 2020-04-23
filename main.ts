@@ -42,22 +42,22 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
 })
 function platform_6 () {
     platform6 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     platform6.vx = 100
     platform6.setPosition(828, 546)
@@ -68,9 +68,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSpr
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 170, 0)
+    controller.moveSprite(Ninja_Dave, 300, 300)
     Ninja_Dave.setPosition(10, 0)
-    Ninja_Dave.ay = 200
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
@@ -99,22 +98,22 @@ f f f f f f f f f f f f f f f f
 }
 function platform_4 () {
     platform4 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.platform4)
     platform4.vx = 100
     platform4.setPosition(825, 651)
@@ -685,7 +684,7 @@ function background () {
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 5 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 5 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 5 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 5 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 5 3 3 3 3 3 e b b b b b b b b b b e 3 3 3 3 3 3 3 3 3 3 e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -1034,22 +1033,22 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.platform6, function (sprite, oth
 })
 function platform_2 () {
     platform_two = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.platform2)
     platform_two.vx = 30
     platform_two.setPosition(620, 870)
@@ -1234,14 +1233,14 @@ function platform_one () {
 . . . . . . . . . . . . . . . . 
 . . . 1 . . . . 1 . . . . 1 . . 
 . . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
 . . 1 1 1 . . 1 1 1 . . 1 1 1 . 
 . . . 1 . . . . 1 . . . . 1 . . 
 . . . . . . . . . . . . . . . . 
@@ -1299,44 +1298,44 @@ function new_sprites () {
 }
 function platform_5 () {
     platform5 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.platform5)
     platform5.vx = 100
     platform5.setPosition(740, 598)
 }
 function platform_3 () {
     platform3 = sprites.create(img`
-f f f f f f f f f f f f f f f f 
-f f e e e e e e e e e e e e f f 
-f e f e e e e e e e e e e f e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e e e e f e e f e e e e e f 
-f e e e e e e f f e e e e e e f 
-f e e e e e e f f e e e e e e f 
-f f f f f f f f f f f f f f f f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f f f f f f f f f f f f f f f f 
-f e e f e e e e e e e e f e e f 
-f e f e e e e e e e e e e f e f 
-f f e e e e e e e e e e e e f f 
-f f f f f f f f f f f f f f f f 
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.platform3)
     platform3.vx = 100
     platform3.setPosition(213, 1312)
