@@ -41,14 +41,6 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
-function key_four () {
-    if (Ninja_Dave.overlapsWith(key_2)) {
-        key_2.destroy(effects.fire, 500)
-        info.changeScoreBy(100)
-        game.splash("AMERICA AWARD COLLECTED", "This award focuses on total association leadership, business skills, and involvement in community. Students qualifying for this award will receive pins at the National Leadership Conference.")
-        game.over(true)
-    }
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
 })
@@ -105,6 +97,14 @@ function platform_4 () {
 `, SpriteKind.platform4)
     platform4.vx = 50
     platform4.setPosition(825, 651)
+}
+function key_four () {
+    if (Ninja_Dave.overlapsWith(key_4)) {
+        key_4.destroy(effects.fire, 500)
+        info.changeScoreBy(100)
+        game.splash("AMERICA AWARD COLLECTED", "This award focuses on total association leadership, business skills, and involvement in community. Students qualifying for this award will receive pins at the National Leadership Conference.")
+        game.over(true)
+    }
 }
 function _3key () {
     key_3 = sprites.create(img`
@@ -1597,11 +1597,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSpr
     key_1_delete()
 })
 let level_4_trigger: Sprite = null
-let key_4: Sprite = null
 let platform_two: Sprite = null
 let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
+let key_4: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
 let Ninja_Dave: Sprite = null
