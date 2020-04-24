@@ -484,7 +484,7 @@ b 8 8 8 8 8 8 8 8 8 5 5 5 5 5 5 5 5 8 8 8 8 8 8 8 8 1 1 1 1 1 8 b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
-    game.showLongText("      Press any button!", DialogLayout.Bottom)
+    game.showLongText("     Press the spacebar!", DialogLayout.Bottom)
     scene.setBackgroundImage(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
@@ -609,12 +609,9 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 `)
     pause(500)
     game.showLongText("Climb your way to victory!", DialogLayout.Center)
-    game.showLongText("Jumps refill every 1 seconds souse them wisely!", DialogLayout.Center)
     game.showLongText("Grab the key at the top of every level to unlock the next stage!", DialogLayout.Center)
     game.showLongText("The keys are Business Achievement Awards, so get all 4!", DialogLayout.Center)
-    game.showLongText("Be careful as the platforms WILL get faster!", DialogLayout.Center)
-    game.showLongText("If you don't jump fast enough on the platforms, they'll drag you down to move!", DialogLayout.Center)
-    game.showLongText("Note: Avoid pressing the jump button between delays to avoid unwanted after jumps.", DialogLayout.Center)
+    game.showLongText("Avoid touching the spikes!", DialogLayout.Center)
     pause(500)
     game.showLongText("        Use the LEFT and RIGHT buttons to move", DialogLayout.Center)
     game.showLongText("         Use the A button to jump your way to victory!", DialogLayout.Center)
@@ -1299,7 +1296,6 @@ function new_sprites () {
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     Ninja_Dave.setPosition(-20, -1200)
-    Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
 }
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
@@ -1613,3 +1609,6 @@ new_sprites()
 intro()
 game.splash("Starting in 3 seconds")
 info.startCountdown(3)
+forever(function () {
+    music.playMelody("C D E F G F E D ", 100)
+})
