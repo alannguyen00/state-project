@@ -39,7 +39,10 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     info.changeLifeBy(-1)
     Ninja_Dave.setPosition(10, 0)
     Ninja_Dave.say("AAAHHH", 2000)
+    Ninja_Dave.ay = 200
     pause(100)
+    last_level = 0
+    final_level()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
@@ -955,7 +958,7 @@ f f f f f f f 1 f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-`, false)
+`, true)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -1598,12 +1601,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSpr
 })
 let level_4_trigger: Sprite = null
 let platform_two: Sprite = null
-let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
 let key_4: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
+let last_level = 0
 let Ninja_Dave: Sprite = null
 let platform_1: Sprite = null
 new_sprites()
