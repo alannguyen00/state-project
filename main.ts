@@ -9,6 +9,7 @@ namespace SpriteKind {
     export const platform6 = SpriteKind.create()
     export const key3 = SpriteKind.create()
     export const signal = SpriteKind.create()
+    export const key4 = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -40,6 +41,14 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
+function key_four () {
+    if (Ninja_Dave.overlapsWith(key_2)) {
+        key_2.destroy(effects.fire, 500)
+        info.changeScoreBy(100)
+        game.splash("AMERICA AWARD COLLECTED", "This award focuses on total association leadership, business skills, and involvement in community. Students qualifying for this award will receive pins at the National Leadership Conference.")
+        game.over(true)
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
 })
@@ -765,7 +774,8 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-    // This block adds detail and texture into bland color blocks
+    // This block adds detail and texture into bland color
+    // blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
@@ -1003,6 +1013,9 @@ e e e e e e e e e e e e e e e e
     key_1.setPosition(279, 950)
     key_1.setKind(SpriteKind.key1)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key4, function (sprite, otherSprite) {
+    key_four()
+})
 function platform_2 () {
     platform_two = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -1236,29 +1249,32 @@ info.onCountdownEnd(function () {
     _1key()
     _2key()
     _3key()
+    _4key()
     last_level = 0
     info.setLife(3)
     info.setScore(0)
 })
 function _4key () {
     key_4 = sprites.create(img`
+. . . . . . . . 5 5 5 . . . . . 
+. . . . . . . . 5 . . . 2 . . . 
+. 2 2 2 . . . . 5 5 . . 2 . . . 
+. . . 2 2 . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . 2 2 . . . 5 5 5 . . . 2 2 2 
+. . 2 . . . 5 . . . 5 . . . . . 
+. 2 2 . . . 5 . . . 5 . . . . . 
+. . . . . . 5 . . . 5 . . . . . 
+. . . . . . . 5 5 5 . . . . . . 
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
-. . . 2 . . 5 5 5 . . . . . . . 
-. . . 2 . 5 . . . 5 . . 2 2 2 . 
-. . . . . 5 . . . 5 . 2 2 . . . 
-. 2 2 2 . 5 . . . 5 . . . . . . 
-. . . . . . 5 5 5 . . . . . . . 
-. . . . . . . 5 . . . . . . . . 
-. . . 2 . . . 5 . . . 2 . . . . 
-. . 2 2 . . . 5 . . . 2 2 . . . 
-. . 2 . . 5 5 5 . 2 . . 2 . . . 
-. . . . . . . 5 . . 2 . . . . . 
-. . . . . . . 5 . . . . . . . . 
-. . . . . 5 5 5 . . . . . . . . 
 `, SpriteKind.Player)
+    key_4.setPosition(1178, 1375)
+    key_4.setKind(SpriteKind.key4)
 }
 function new_sprites () {
     Ninja_Dave = sprites.create(img`
