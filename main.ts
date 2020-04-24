@@ -35,6 +35,7 @@ namespace myTiles {
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
+// If the sprite hits this color, then the sprite will be re spawned at the
 scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     info.changeLifeBy(-1)
     Ninja_Dave.setPosition(10, 0)
@@ -774,8 +775,7 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-    // This block adds detail and texture into bland color
-    // blocks
+    // This block adds detail and texture into bland color blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
