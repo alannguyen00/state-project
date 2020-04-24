@@ -51,7 +51,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSpr
 // Will create ninja
 function main_character () {
     // Moves the character
-    controller.moveSprite(Ninja_Dave, 170, 0)
+    controller.moveSprite(Ninja_Dave, 100, 0)
     Ninja_Dave.setPosition(10, 0)
     Ninja_Dave.ay = 200
 }
