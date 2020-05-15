@@ -35,15 +35,13 @@ namespace myTiles {
 scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
     platform_1.vx = 0 - platform_1.vx
 })
-// If the sprite hits this color, then the sprite will be re spawned at the
+// If the sprite hits this color, then the sprite will
+// be re spawned at the
 scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
     Ninja_Dave.say("AAAHHH", 2000)
-    Ninja_Dave.ay = 200
     pause(100)
-    last_level = 0
-    final_level()
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     key_3_delete()
@@ -52,8 +50,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSpr
 function main_character () {
     // Moves the character
     controller.moveSprite(Ninja_Dave, 150, 0)
-    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.setPosition(15, 0)
+    Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
     Ninja_Dave.ay = 200
+    checkpoint_x = 15
+    checkpoint_y = 0
 }
 function key2_delete () {
     if (Ninja_Dave.overlapsWith(key_2)) {
@@ -78,6 +79,9 @@ f f f f f f f f f f f f f f f f
 `, false)
         info.changeScoreBy(100)
         game.splash("BUSINESS AWARD COLLECTED", "This award focuses on local and district/regional and state involvement; intermediate business skills; and leadership in the community. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
+        checkpoint_x = 661
+        checkpoint_y = 725
+        bpm = 250
     }
 }
 function platform_4 () {
@@ -155,6 +159,9 @@ f f f f f f f f f f f f f f f f
 `, false)
         info.changeScoreBy(100)
         game.splash("FUTURE AWARD COLLECTED", "This award focuses on basic business skills, introduction to community service, and FBLA involvement at the local level. Pins will be sent to the local chapter adviser for presentation at a local awards ceremony or local FBLA event.")
+        checkpoint_y = 990
+        checkpoint_x = 373
+        bpm = 225
     }
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -354,7 +361,7 @@ function startbutton () {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform2, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
@@ -697,9 +704,9 @@ function background () {
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 5 5 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 1 b b b b b b b b b e 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 5 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+2 2 b b b b b b b b b b b 3 3 3 3 5 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
-2 2 b b b b b b b b b b b 3 3 3 3 3 3 3 3 e b b b b b b b b b e 3 3 3 3 3 3 3 e b b b b b e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
-f f f f f f f f f f f f f 3 3 3 3 3 3 3 3 e f f f f f f f f f e 3 3 3 3 3 3 3 e f f f f f e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
+f f f f f f f f f f f f f 3 3 3 5 3 3 3 3 e f f f f f f f f f e 3 3 3 3 3 3 3 e f f f f f e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 3 3 3 3 3 3 3 3 e d d d d d d d d d e 3 3 3 3 3 3 3 e d d d d d e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 5 3 3 3 3 3 3 3 e d d d d d d d d d e 3 3 3 3 3 3 3 e d d d d d e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
 d d d d d d d d d d d d d 3 3 3 3 3 3 3 3 e d d d d d d d d d e 3 3 3 3 3 3 3 e d d d d d e 3 3 3 3 3 3 e b b b b b b b b b b e e e e e e e e e e e e b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -775,7 +782,8 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-    // This block adds detail and texture into bland color blocks
+    // This block adds detail and texture into bland color
+    // blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
@@ -959,7 +967,7 @@ f f f f f f f f f f f f f f f f
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
@@ -989,6 +997,9 @@ f f f f f f f f f f f f f f f f
 `, false)
         info.changeScoreBy(100)
         game.splash(" LEADER AWARD COLLECTED ", "This award focuses on local, district/regional, state, and national involvement; advanced business skills; and community leadership. Names of qualifying students and pins will be sent to the state chair/adviser to be presented at the state leadership conference, if desired.")
+        checkpoint_x = 867
+        checkpoint_y = 393
+        bpm = 275
     }
 }
 function _1key () {
@@ -1040,7 +1051,7 @@ function platform_2 () {
 }
 scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
@@ -1248,11 +1259,11 @@ info.onCountdownEnd(function () {
     final_level()
     _1key()
     _2key()
-    _3key()
     _4key()
     last_level = 0
     info.setLife(3)
     info.setScore(0)
+    _3key()
 })
 function _4key () {
     key_4 = sprites.create(img`
@@ -1548,10 +1559,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherS
     game.splash("Now entering the drop zone")
     level_4_trigger.destroy(effects.fire, 500)
     Ninja_Dave.ay = -200
+    checkpoint_x = 867
+    checkpoint_y = 393
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(10, 0)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
@@ -1597,19 +1610,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSpr
 })
 let level_4_trigger: Sprite = null
 let platform_two: Sprite = null
+let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
 let key_4: Sprite = null
 let platform4: Sprite = null
 let key_2: Sprite = null
-let last_level = 0
+let checkpoint_y = 0
+let checkpoint_x = 0
 let Ninja_Dave: Sprite = null
 let platform_1: Sprite = null
+let bpm = 0
 new_sprites()
 intro()
 game.splash("Starting in 3 seconds")
 info.startCountdown(3)
+bpm = 200
 forever(function () {
-    music.playMelody("C D E F G F E D ", 100)
-    music.playMelody("C D D E E D D C ", 100)
+    music.playMelody("C D C E G E A G ", bpm)
+    music.playMelody("E G D D C G E D ", bpm)
+    music.playMelody("A D G F G C G D ", bpm)
 })
