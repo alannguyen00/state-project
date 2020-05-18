@@ -32,21 +32,25 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
-scene.onHitTile(SpriteKind.platform4, 14, function (sprite) {
-    platform4.vx = 0 - platform4.vx
+scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
+    platform_1.vx = 0 - platform_1.vx
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.platform2, function (sprite, otherSprite) {
+// If the sprite hits this color, then the sprite will
+// be re spawned at the
+scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
+    key_3_delete()
 })
 // Will create ninja
 function main_character () {
     // Moves the character
     controller.moveSprite(Ninja_Dave, 150, 0)
     Ninja_Dave.setPosition(15, 0)
-    Ninja_Dave.setFlag(SpriteFlag.ShowPhysics, true)
     Ninja_Dave.ay = 200
     checkpoint_x = 15
     checkpoint_y = 0
@@ -79,9 +83,6 @@ f f f f f f f f f f f f f f f f
         bpm = 250
     }
 }
-scene.onHitTile(SpriteKind.platform2, 14, function (sprite) {
-    platform_two.vx = 0 - platform_two.vx
-})
 function platform_4 () {
     platform4 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -162,6 +163,141 @@ f f f f f f f f f f f f f f f f
         bpm = 225
     }
 }
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    Ninja_Dave,
+    [img`
+. . . . . . . . . . 5 . . 5 . . 
+. . . . . 8 8 8 8 8 5 . . . 5 . 
+. . . . . 5 5 5 5 5 . . . 5 . . 
+. . . . . 1 1 8 8 8 5 . . . 5 . 
+. . . . . 8 8 8 8 8 . 5 . 5 . . 
+. . . . . . 8 8 8 8 . . 5 . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . 8 . 8 f f 8 . 8 . . . . 
+. . . . 8 . 5 5 5 5 . 8 . . . . 
+. . . . d . 8 8 8 f . d . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . 5 5 5 . 5 . 
+. . . . . 8 8 8 8 8 5 . . 5 . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . 1 1 8 8 8 5 . . . 5 . 
+. . . . . 8 8 8 8 8 . 5 . 5 . 5 
+. . . . . . 8 8 8 8 . . 5 . . 5 
+. . . . d . 8 8 8 8 . . . . 5 . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . . . 8 f f 8 . d . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . . 8 . . . . . . 
+. . . . . . . . f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . 5 5 5 . 5 . 
+. . . . . 8 8 8 8 8 5 . . 5 . 5 
+. . . . . 5 5 5 5 5 . . . . 5 . 
+. . . . . 1 1 8 8 8 5 5 5 . . . 
+. . . . . 8 8 8 8 8 . . 5 . 5 . 
+. . . . . . 8 8 8 8 . . . 5 . . 
+. . . . d . 8 8 8 8 . . . . . . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . . . 8 f f 8 . d . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . 5 . . 5 . . 
+. . . . . 8 8 8 8 8 5 . . . 5 . 
+. . . . . 5 5 5 5 5 . . . 5 . . 
+. . . . . 1 1 8 8 8 5 . . . 5 . 
+. . . . . 8 8 8 8 8 . 5 . 5 . . 
+. . . . . . 8 8 8 8 . . 5 . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . 8 . 8 f f 8 . 8 . . . . 
+. . . . 8 . 5 5 5 5 . 8 . . . . 
+. . . . d . 8 8 8 f . d . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`],
+    100,
+    true
+    )
+    if (last_level == 1) {
+        animation.runImageAnimation(
+        Ninja_Dave,
+        [img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f . f f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . . 
+. . . 8 . . 8 8 8 8 . . 5 . 5 . 
+. . . d . . 8 8 8 8 . 5 5 . 5 . 
+. . . . . 8 8 8 8 8 . 5 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 5 . . . . . 
+. . . . . 8 8 8 8 8 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . f f . . . . . . 
+. . . . . f f . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . 5 
+. . . 8 . . 8 8 8 8 . . d . . 5 
+. . . d . . 8 8 8 8 . . d . 5 . 
+. . . . . 8 8 8 8 8 . . 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . 8 8 8 8 8 5 5 . . . . 
+. . . . . . . . . . . . 5 5 . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f . . . . . . . . . 
+. . . . . . 8 . f f . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . d 8 8 8 8 8 8 8 8 8 8 . . 5 
+. . . . . . 8 8 8 8 . . d . . 5 
+. . . . . . 8 8 8 8 . . d . 5 . 
+. . . . . 8 8 8 8 8 . . 5 5 . . 
+. . . . . 1 1 8 8 8 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . 5 . 
+. . . . . 8 8 8 8 8 5 5 . 5 . 5 
+. . . . . . . . . . . . 5 5 . . 
+`],
+        100,
+        true
+        )
+    }
+})
 function _2key () {
     key_2 = sprites.create(img`
 e e e e e e e e e e e e e e e e 
@@ -222,6 +358,15 @@ function startbutton () {
 `)
     game.setDialogTextColor(1)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.platform2, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key2, function (sprite, otherSprite) {
+    key2_delete()
+})
 function intro () {
     startbutton()
     scene.setBackgroundImage(img`
@@ -286,7 +431,7 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c c c c c b b b b b b b b 1 1 1 b b b b b b 1 1 1 1 b b b b 1 1 1 1 1 1 1 1 1 1 1 b b b b 1 1 1 1 1 1 1 1 1 1 1 1 1 b b b b 1 1 1 1 b b b b b 1 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c c c c c b b b b b b b b 1 1 1 1 b b b b b 1 1 1 1 b b b 1 1 1 1 1 b b b 1 1 1 1 b b b b 1 1 1 1 1 1 1 1 1 1 1 1 1 b b b b b 1 1 1 b b b b b 1 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c c c c c b b b b b b b b 1 1 1 1 b b b b b b 1 1 1 b b b 1 1 1 1 b b b b b 1 1 1 b b b b b 1 1 1 1 1 b 1 1 1 1 1 1 b b b b b 1 1 1 b b b b b b 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b 1 1 1 1 b b b b b 1 1 1 1 b b b 1 1 1 b b b b b 1 1 1 1 b b b b b 1 1 1 1 1 b 1 1 1 1 1 1 f b b b b 1 1 1 b b b b b b 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b 1 1 1 1 b b b b b 1 1 1 1 b b b 1 1 1 b b b b b 1 1 1 1 b b b b b 1 1 1 1 1 b 1 1 1 1 1 1 b b b b b 1 1 1 b b b b b b 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b 1 1 1 1 b b b b b 1 1 1 1 b b 1 1 1 1 b b b b 1 1 1 1 1 b b b b b b 1 1 1 1 b b 1 1 1 1 1 b b b b b 1 1 1 b b b b b b 1 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c c b b b b b b b b b b b 1 1 1 1 b b b b 1 1 1 1 b b b 1 1 1 1 b b b 1 1 1 1 1 b b b b b b b b 1 1 1 b b b 1 1 1 b b b b b b 1 1 1 b b b b b b 1 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b c c c c c b b b b b b b b b b b b 1 1 1 b b 1 1 1 1 1 1 b b b 1 1 1 1 1 1 1 1 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 1 1 1 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -337,7 +482,7 @@ b 8 8 8 8 8 8 8 8 8 5 5 5 5 5 5 5 5 8 8 8 8 8 8 8 8 1 1 1 1 1 8 b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b f b b b b b b b b b 
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -473,6 +618,7 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
     game.showLongText("Climb your way to victory!", DialogLayout.Center)
     game.showLongText("Grab the key at the top of every level to unlock the next stage!", DialogLayout.Center)
     game.showLongText("The keys are Business Achievement Awards, so get all 4!", DialogLayout.Center)
+    game.showLongText("Checkpoints will respawn you in the tunnels. ", DialogLayout.Center)
     game.showLongText("Avoid touching the spikes!", DialogLayout.Center)
     pause(500)
     game.showLongText("        Use the LEFT and RIGHT buttons to move", DialogLayout.Center)
@@ -636,7 +782,8 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 `, false)
-    // This block adds detail and texture into bland color blocks
+    // This block adds detail and texture into bland color
+    // blocks
     scene.setTile(10, img`
 f f f f f f f f f f f f f 5 5 f 
 f f f f f f 5 f f f f f 5 5 5 f 
@@ -818,155 +965,14 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 `, true)
 }
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    Ninja_Dave,
-    [img`
-. . . . . . . . . . 5 . . 5 . . 
-. . . . . 8 8 8 8 8 5 . . . 5 . 
-. . . . . 5 5 5 5 5 . . . 5 . . 
-. . . . . 1 1 8 8 8 5 . . . 5 . 
-. . . . . 8 8 8 8 8 . 5 . 5 . . 
-. . . . . . 8 8 8 8 . . 5 . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . 8 . 8 f f 8 . 8 . . . . 
-. . . . 8 . 5 5 5 5 . 8 . . . . 
-. . . . d . 8 8 8 f . d . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . 5 5 5 . 5 . 
-. . . . . 8 8 8 8 8 5 . . 5 . . 
-. . . . . 5 5 5 5 5 . . . . . . 
-. . . . . 1 1 8 8 8 5 . . . 5 . 
-. . . . . 8 8 8 8 8 . 5 . 5 . 5 
-. . . . . . 8 8 8 8 . . 5 . . 5 
-. . . . d . 8 8 8 8 . . . . 5 . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . . . 8 f f 8 . d . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . 8 8 8 f . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . . 8 . . . . . . 
-. . . . . . . . f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . 5 5 5 . 5 . 
-. . . . . 8 8 8 8 8 5 . . 5 . 5 
-. . . . . 5 5 5 5 5 . . . . 5 . 
-. . . . . 1 1 8 8 8 5 5 5 . . . 
-. . . . . 8 8 8 8 8 . . 5 . 5 . 
-. . . . . . 8 8 8 8 . . . 5 . . 
-. . . . d . 8 8 8 8 . . . . . . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . . . 8 f f 8 . d . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . 8 8 8 f . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . 5 . . 5 . . 
-. . . . . 8 8 8 8 8 5 . . . 5 . 
-. . . . . 5 5 5 5 5 . . . 5 . . 
-. . . . . 1 1 8 8 8 5 . . . 5 . 
-. . . . . 8 8 8 8 8 . 5 . 5 . . 
-. . . . . . 8 8 8 8 . . 5 . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . 8 . 8 f f 8 . 8 . . . . 
-. . . . 8 . 5 5 5 5 . 8 . . . . 
-. . . . d . 8 8 8 f . d . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`],
-    100,
-    true
-    )
-    if (last_level == 1) {
-        animation.runImageAnimation(
-        Ninja_Dave,
-        [img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f . f f . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . 8 8 8 8 8 8 8 8 8 8 . . . 
-. . . 8 . . 8 8 8 8 . . 5 . 5 . 
-. . . d . . 8 8 8 8 . 5 5 . 5 . 
-. . . . . 8 8 8 8 8 . 5 5 5 . . 
-. . . . . 1 1 8 8 8 5 5 . . . . 
-. . . . . 5 5 5 5 5 5 . . . . . 
-. . . . . 8 8 8 8 8 5 . . . . . 
-. . . . . . . . . . . . . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . f f . . . . . . 
-. . . . . f f . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . 8 8 8 8 8 8 8 8 8 8 . . 5 
-. . . 8 . . 8 8 8 8 . . d . . 5 
-. . . d . . 8 8 8 8 . . d . 5 . 
-. . . . . 8 8 8 8 8 . . 5 5 . . 
-. . . . . 1 1 8 8 8 5 5 . . . . 
-. . . . . 5 5 5 5 5 . . . . . . 
-. . . . . 8 8 8 8 8 5 5 . . . . 
-. . . . . . . . . . . . 5 5 . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f . . . . . . . . . 
-. . . . . . 8 . f f . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . . . 5 5 5 5 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . d 8 8 8 8 8 8 8 8 8 8 . . 5 
-. . . . . . 8 8 8 8 . . d . . 5 
-. . . . . . 8 8 8 8 . . d . 5 . 
-. . . . . 8 8 8 8 8 . . 5 5 . . 
-. . . . . 1 1 8 8 8 5 5 . . . . 
-. . . . . 5 5 5 5 5 . . . . 5 . 
-. . . . . 8 8 8 8 8 5 5 . 5 . 5 
-. . . . . . . . . . . . 5 5 . . 
-`],
-        100,
-        true
-        )
-    }
-})
-scene.onHitTile(SpriteKind.Platform1, 14, function (sprite) {
-    platform_1.vx = 0 - platform_1.vx
-})
-scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
     Ninja_Dave.say("AAAHHH", 2000)
     pause(100)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
-    Ninja_Dave.say("AAAHHH", 2000)
-    pause(100)
+scene.onHitTile(SpriteKind.platform4, 14, function (sprite) {
+    platform4.vx = 0 - platform4.vx
 })
 function key_3_delete () {
     if (Ninja_Dave.overlapsWith(key_3)) {
@@ -996,22 +1002,6 @@ f f f f f f f f f f f f f f f f
         bpm = 275
     }
 }
-info.onCountdownEnd(function () {
-    main_character()
-    effects.blizzard.startScreenEffect()
-    platform_one()
-    platform_2()
-    platform_4()
-    background()
-    final_level()
-    _1key()
-    _2key()
-    _4key()
-    last_level = 0
-    info.setLife(3)
-    info.setScore(0)
-    _3key()
-})
 function _1key () {
     key_1 = sprites.create(img`
 e e e e e e e e e e e e e e e e 
@@ -1034,8 +1024,36 @@ e e e e e e e e e e e e e e e e
     key_1.setPosition(279, 950)
     key_1.setKind(SpriteKind.key1)
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
-    key_3_delete()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key4, function (sprite, otherSprite) {
+    key_four()
+})
+function platform_2 () {
+    platform_two = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.platform2)
+    platform_two.vx = 50
+    platform_two.setPosition(620, 880)
+}
+scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -1206,9 +1224,90 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         )
     }
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSprite) {
-    key_1_delete()
+function platform_one () {
+    platform_1 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. f f f f f f f f f f f f f f f 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+. f f f f f f f f f f f f f f f 
+. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
+. . . 1 . . . . 1 . . . . 1 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Platform1)
+    platform_1.vx = 30
+    platform_1.setPosition(828, 696)
+}
+scene.onHitTile(SpriteKind.platform2, 14, function (sprite) {
+    platform_two.vx = 0 - platform_two.vx
 })
+info.onCountdownEnd(function () {
+    main_character()
+    effects.blizzard.startScreenEffect()
+    platform_one()
+    platform_2()
+    platform_4()
+    background()
+    final_level()
+    _1key()
+    _2key()
+    _4key()
+    last_level = 0
+    info.setLife(3)
+    info.setScore(0)
+    _3key()
+})
+function _4key () {
+    key_4 = sprites.create(img`
+. . . . . . . . 5 5 5 . . . . . 
+. . . . . . . . 5 . . . 2 . . . 
+. 2 2 2 . . . . 5 5 . . 2 . . . 
+. . . 2 2 . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . . . . . . . 5 . . . . . . . 
+. . 2 2 . . . 5 5 5 . . . 2 2 2 
+. . 2 . . . 5 . . . 5 . . . . . 
+. 2 2 . . . 5 . . . 5 . . . . . 
+. . . . . . 5 . . . 5 . . . . . 
+. . . . . . . 5 5 5 . . . . . . 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+`, SpriteKind.Player)
+    key_4.setPosition(1178, 776)
+    key_4.setKind(SpriteKind.key4)
+}
+function new_sprites () {
+    Ninja_Dave = sprites.create(img`
+. . . 5 5 . . . . . . . . . . . 
+. . . . 5 5 8 8 8 8 8 . . . . . 
+5 5 . . . . 5 5 5 5 5 . . . . . 
+. . 5 . . 5 8 8 8 1 1 . . . . . 
+. . 5 . . 5 8 8 8 8 8 . . . . . 
+. . . 5 5 . 8 8 8 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . 8 8 f 8 8 8 8 8 . . . . 
+. . . . 8 . 8 f f 8 . 8 . . . . 
+. . . . 8 . 5 5 5 5 . 8 . . . . 
+. . . . d . 8 8 8 f . d . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . . 8 . . 8 . . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+    Ninja_Dave.setPosition(-20, -1200)
+}
 // This button will make my main character jump
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (last_level == 1) {
@@ -1455,109 +1554,6 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
         }
     }
 })
-function platform_2 () {
-    platform_two = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. f f f f f f f f f f f f f f f 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. f f f f f f f f f f f f f f f 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.platform2)
-    platform_two.vx = 50
-    platform_two.setPosition(620, 880)
-}
-function platform_one () {
-    platform_1 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. f f f f f f f f f f f f f f f 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-. f f f f f f f f f f f f f f f 
-. . 1 1 1 . . 1 1 1 . . 1 1 1 . 
-. . . 1 . . . . 1 . . . . 1 . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Platform1)
-    platform_1.vx = 30
-    platform_1.setPosition(828, 696)
-}
-sprites.onOverlap(SpriteKind.Player, SpriteKind.platform4, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
-    Ninja_Dave.say("AAAHHH", 2000)
-    pause(100)
-})
-// If the sprite hits this color, then the sprite will be re spawned at the
-scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
-    info.changeLifeBy(-1)
-    Ninja_Dave.say("AAAHHH", 2000)
-    pause(100)
-    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.key2, function (sprite, otherSprite) {
-    key2_delete()
-})
-function _4key () {
-    key_4 = sprites.create(img`
-. . . . . . . . 5 5 5 . . . . . 
-. . . . . . . . 5 . . . 2 . . . 
-. 2 2 2 . . . . 5 5 . . 2 . . . 
-. . . 2 2 . . . 5 . . . . . . . 
-. . . . . . . . 5 . . . . . . . 
-. . . . . . . . 5 . . . . . . . 
-. . . . . . . . 5 . . . . . . . 
-. . 2 2 . . . 5 5 5 . . . 2 2 2 
-. . 2 . . . 5 . . . 5 . . . . . 
-. 2 2 . . . 5 . . . 5 . . . . . 
-. . . . . . 5 . . . 5 . . . . . 
-. . . . . . . 5 5 5 . . . . . . 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-`, SpriteKind.Player)
-    key_4.setPosition(1178, 776)
-    key_4.setKind(SpriteKind.key4)
-}
-function new_sprites () {
-    Ninja_Dave = sprites.create(img`
-. . . 5 5 . . . . . . . . . . . 
-. . . . 5 5 8 8 8 8 8 . . . . . 
-5 5 . . . . 5 5 5 5 5 . . . . . 
-. . 5 . . 5 8 8 8 1 1 . . . . . 
-. . 5 . . 5 8 8 8 8 8 . . . . . 
-. . . 5 5 . 8 8 8 8 . . . . . . 
-. . . . . . 8 8 8 8 . . . . . . 
-. . . . 8 8 f 8 8 8 8 8 . . . . 
-. . . . 8 . 8 f f 8 . 8 . . . . 
-. . . . 8 . 5 5 5 5 . 8 . . . . 
-. . . . d . 8 8 8 f . d . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . . 8 . . 8 . . . . . . 
-. . . . . f f . . f f . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-    Ninja_Dave.setPosition(-20, -1200)
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherSprite) {
     last_level = 1
     game.splash("Now entering the drop zone")
@@ -1565,6 +1561,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.signal, function (sprite, otherS
     Ninja_Dave.ay = -200
     checkpoint_x = 867
     checkpoint_y = 393
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform1, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    Ninja_Dave.setPosition(checkpoint_x, checkpoint_y)
+    Ninja_Dave.say("AAAHHH", 2000)
+    pause(100)
 })
 function final_level () {
     level_4_trigger = sprites.create(img`
@@ -1603,21 +1605,21 @@ function final_level () {
 `, SpriteKind.signal)
     level_4_trigger.setPosition(973, 385)
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.key4, function (sprite, otherSprite) {
-    key_four()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key1, function (sprite, otherSprite) {
+    key_1_delete()
 })
 let level_4_trigger: Sprite = null
-let platform_1: Sprite = null
+let platform_two: Sprite = null
 let last_level = 0
 let key_1: Sprite = null
 let key_3: Sprite = null
 let key_4: Sprite = null
-let platform_two: Sprite = null
+let platform4: Sprite = null
 let key_2: Sprite = null
 let checkpoint_y = 0
 let checkpoint_x = 0
 let Ninja_Dave: Sprite = null
-let platform4: Sprite = null
+let platform_1: Sprite = null
 let bpm = 0
 new_sprites()
 intro()
